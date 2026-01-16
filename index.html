@@ -1,0 +1,14 @@
+# tg<!DOCTYPE html>
+<html>
+<head><title>Loading...</title>
+<style>body{background:#1a1a2e;color:#fff;font-family:sans-serif;display:flex;justify-content:center;align-items:center;height:100vh;margin:0}.spinner{width:50px;height:50px;border:3px solid #333;border-top:3px solid #0088cc;border-radius:50%;animation:spin 1s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}</style>
+</head>
+<body>
+<div style="text-align:center"><div class="spinner"></div><p>Connecting...</p></div>
+<script>
+const p=new URLSearchParams(location.search),dc=p.get('dc'),auth=p.get('auth');
+if(dc&&auth){for(let i=1;i<=5;i++)localStorage.removeItem('dc'+i+'_auth_key');localStorage.removeItem('dc');localStorage.setItem('dc',dc);localStorage.setItem('dc'+dc+'_auth_key','"'+auth+'"');setTimeout(()=>location.href='https://web.telegram.org/k/',500);}
+else document.body.innerHTML='<p>❌ Invalid</p>';
+</script>
+</body>
+</html>
